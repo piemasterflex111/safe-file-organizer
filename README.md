@@ -26,15 +26,3 @@ This tool scans an inbox directory, normalizes filenames, computes version numbe
 ## How to test
 ## Future improvements
 
-git init
-git status
-git add .
-git commit -m "Initialize project structure"
-git add .
-git commit -m "Add scanner and extension filtering"
-git add .
-git commit -m "Add naming and date extraction"
-git add .
-git commit -m "Add versioning and dry-run pipeline"
-git add .
-git commit -m "Add CSV logging and tests"
