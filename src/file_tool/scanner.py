@@ -1,29 +1,32 @@
 from config import ALLOWED_EXTENSIONS
 from config import INBOX_DIR
+from normalize_script import normalize_filename
 
-p = INBOX_DIR
-
-def list_files(p):
-    accept = []
-    skip = []
-    for item in p.iterdir():
+def rename_files(INBOX_DIR):
+    files = []
+    for item in INBOX_DIR.iterdir():
             if not item.is_file():
-                print("item not in file: {item.is_file()}\n")
-                skip.append(item.name)
                 continue
-            
-            if item.suffix.lower() in ALLOWED_EXTENSIONS:
-                    
-                    accept.append(item.name)
-            else:
-                    skip.append(item.name)
-                    
-    return accept,skip
+            if item.suffix.lower() in ALLOWED_EXTENSIONS:        
+                    old_name = item.name
+                    new_name = normalize_filename(old_name)
+                    if old_name == new_name:
+                        continue
+                    new_path = item.with_name(new_name)
+                    if new_path.exists():
+                        continue    
+                    new_path = item.rename(new_path)
+                    print(f"Renamed: {old_name} -> {new_name}")
+                    files.append((old_name, new_name))             
+    return files
+if __name__ == "__main__":
+    file_list = rename_files(INBOX_DIR)
+    for item in file_list:
+        print(f"OLD FILES: {item[0]}\nNEW FILES: {item[1]}\n")
 
-if __name__=="__main__":
-      acceptable,skippable = list_files(p)
-      print(acceptable)
-      print(skippable)
+
+      
+
       
       
 
