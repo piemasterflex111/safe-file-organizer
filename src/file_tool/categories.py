@@ -1,0 +1,8 @@
+
+DESTINATIONS = {
+    "RESUME" : "01_RESUME",
+    "ENGINEERING" : "02_ENGINEERING",
+    "PERSONAL" : "03_PERSONAL",
+    "ARCHIVE" : "90_ARCHIVE",
+    "INBOX" : "_INBOX",
+}
