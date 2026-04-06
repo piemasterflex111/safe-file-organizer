@@ -1,6 +1,9 @@
 from pathlib import Path
 
-INBOX_DIR = Path(r"C:\Users\payam_vngz\Dev\3_projects\file_renamer_python_script\file-intake-versioning-tool\data")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATA_DIR = PROJECT_ROOT / "data"
+INBOX_DIR = DATA_DIR /  "sample_input"
+LOG_DIR = DATA_DIR / "logs"
 
 ALLOWED_EXTENSIONS = {
     ".md", ".png", ".jpg", ".jpeg", ".pdf", 
