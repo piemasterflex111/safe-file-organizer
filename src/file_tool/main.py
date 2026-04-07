@@ -37,6 +37,7 @@ def main() -> None:
     print(f"Scan skips: {len(skipped_scan)}")
     print(f"Rename preview count: {len(renamed)}")
     print(f"Rename skips: {len(skipped_rename)}")
+    
 
 if __name__=="__main__":
     main()
