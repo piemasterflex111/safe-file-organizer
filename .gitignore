@@ -4,4 +4,7 @@ __pycache__/
 .pytest_cache/
 .vscode/
 data/logs/*.csv
-data/intake_folder/*
+data/*
+*.csv
+move_plan.csv
+docs/

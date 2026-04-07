@@ -1,8 +1,8 @@
 from pathlib import Path
 import csv
 
-from classifier import classify_name
-from categories import DESTINATIONS
+from .classifier import classify_name
+from .categories import DESTINATIONS
 
 ONEDRIVE_ROOT = Path(r"C:\Users\payam_vngz\OneDrive")
 skipped = []
@@ -47,9 +47,7 @@ def write_csv(rows: list[dict], out_path: Path) -> None:
 
 if __name__ == "__main__":
     walking_dir = walk_and_move_out_plan(ONEDRIVE_ROOT)
-    print(f"Total planned rows: {len(walking_dir)}")
-    for row in walking_dir[:]:
-        print(row)
+    #print(f"Total planned rows: {len(walking_dir)}")
     write_csv(walking_dir, Path("move_plan.csv"))
     print("Wrote move_plan.csv")
 
