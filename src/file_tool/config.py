@@ -1,41 +1,42 @@
+"""
+Configuration for PneDrive Organize Tool
+======================================
+All paths, target folder structure, and rules live here.
+Easy to change without touching other files.
+"""
+
 from pathlib import Path
 
+# ====================== ROOT PATHS ======================
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = PROJECT_ROOT / "data"
-INBOX_DIR = DATA_DIR / "sample_input"
-LOG_DIR = DATA_DIR / "logs"
+SAMPLE_DIR = DATA_DIR / "sample_files"
+LOG_DIR = PROJECT_ROOT / "logs"
 
-ALLOWED_EXTENSIONS = {
-    ".md", ".png", ".jpg", ".jpeg", ".pdf",
-    ".docx", ".xlsx", ".pptx", ".txt", ".csv",
-    ".zip", ".rar", ".7z", ".tar.gz", ".mp4",
-    ".avi", ".mkv", ".mp3", ".wav",
+# ====================== TARGET STRUCTURE ======================
+TARGET_BUCKETS = {
+    "00_ADMIN": "00_ADMIN",
+    "01_FINANCE": "01_FINANCE",
+    "02_CAREER": "02_CAREER",
+    "03_ENGINEERING": "03_ENGINEERING",
+    "04_PROJECTS": "04_PROJECTS",
+    "05_PERSONAL": "05_PERSONAL",   
+    "06_MEDIA": "06_MEDIA",
+    "90_ARCHIVE": "90_ARCHIVE",
+    "INBOX": "INBOX_REVIEW",    # temporary drop zone
 }
 
-TRUSTED_TOP_LEVEL_FOLDERS = {
-    "00_ADMIN",
-    "01_FINANCE",
-    "02_CAREER",
-    "03_ENGINEERING",
-    "04_PROJECTS",
-    "05_PERSONAL",
-    "06_MEDIA",
-    "90_ARCHIVE",
-}
+# Default root for my real OneDrive
+ONEDRIVE_ROOT = Path(r"C:\Users\payam_vngz\OneDrive")
 
-DUPLICATE_ROOT_TO_CANONICAL = {
-    "ARCHIVE_9-19-25": "90_ARCHIVE",
-    "RESUME_DIRECTORY_9-19-25": "02_CAREER",
-    "Linkedin Resumes 3-23-26": "02_CAREER",
-    "Stm32": "03_ENGINEERING",
-    "TAXES_10-4-25": "01_FINANCE",
-    "PAY STUBS 10-20-25": "01_FINANCE",
-    "YNAB 10-24-25": "01_FINANCE",
-}
+# ====================== ALLOWED EXTENSIONS ======================
+ALLOWED_EXTENSIONS = {".md", ".txt", ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".jpg", ".jpeg", ".png", ".gif", ".mp4", ".heic",".avi", ".mkv", ".zip", ".rar", ".7z", ".csv", ".json", ".xml", ".html", ".css", ".js", ".py", ".ipynb", ".exe", ".dll", ".iso", ".bin", ".apk", ".dmg", ".tar", ".gz"}
 
-GENERIC_ROOTS = {
-    "Desktop",
-    "Documents",
-    "Imports",
-    "GMAIL EXPORTS",
-}
+# ====================== KEYWORD RULES (for classification) ======================
+CLASSIFICATION_RULES = {
+    "CAREER": {"resume", "mach", "tesla", "relativity", "job", "offer", "interview", "linkedin"},
+    "ENGINEERING": {"stm32", "python", "firmware", "test", "engineer", "pptx", "diagram"},
+    "FINANCE": {"tax", "ynab", "pay stub", "bill", "budget"},
+    "ARCHIVE": {"old", "archive", "backup", "v1", "v2", "final"},
+    "INBOX": {"inbox", "new folder", "untitled"},
+    }
