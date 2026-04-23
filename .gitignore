@@ -11,4 +11,5 @@ artifacts/
 *.csv
 move_plan.csv
 
-docs/
+docs/*
+!docs/TRACEABILITY_AND_REPRODUCTION.md
