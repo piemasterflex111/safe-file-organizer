@@ -1,5 +1,5 @@
 """
-Configuration for the file intake and organization tool.
+Configuration for Safe File Organizer.
 
 Paths, target folder structure, and classification rules live here so the CLI
 can be adapted without changing the workflow code.

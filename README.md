@@ -1,4 +1,4 @@
-# File Intake Versioning Tool
+# Safe File Organizer
 
 A conservative Python CLI for auditing, planning, and safely organizing large local file trees such as synced cloud-drive folders.
 

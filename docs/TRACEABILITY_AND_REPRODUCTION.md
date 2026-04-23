@@ -6,7 +6,7 @@ The goal is auditability: every risky action should have a review step, a report
 
 ## Repository Purpose
 
-This repo is a Python command-line tool for safely auditing, cleaning, and organizing messy local file trees such as synced cloud-drive folders.
+Safe File Organizer is a Python command-line tool for safely auditing, cleaning, and organizing messy local file trees such as synced cloud-drive folders.
 
 It is designed around this rule:
 
