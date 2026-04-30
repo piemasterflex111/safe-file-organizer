@@ -16,11 +16,25 @@ The tool was built around one practical constraint: cleanup should be reviewable
 - applies safe moves with collision checks and undo scripts
 - keeps detected project folders from being flattened into document buckets
 
+## Why It Matters
+
+Large local and synced folders often contain a mix of real work, generated files, dependency folders, caches, old exports, duplicate names, and project directories. Cleaning that by hand is risky.
+
+This tool treats cleanup like an audit workflow:
+
+```text
+scan -> report -> classify -> plan -> confirm -> quarantine/move -> verify
+```
+
+That makes it useful for personal file cleanup, small business shared folders, and internal operational directories where accidental data loss is unacceptable.
+
 ## Validated Use Case
 
 The current workflow was validated against a real OneDrive cleanup with more than 40,000 files. The final verification pass showed no generated-cache candidates and no removable empty-directory candidates remaining. One locked OneDrive system metadata file was intentionally left unresolved.
 
 See [CASE_STUDY.md](CASE_STUDY.md) for a sanitized write-up.
+
+For service-style positioning and example deliverables, see [SERVICES.md](SERVICES.md).
 
 ## Safety Model
 
@@ -100,6 +114,17 @@ src/file_tool/
 tests/
   test_core_workflows.py
 ```
+
+## Commercial Use Cases
+
+This project demonstrates automation patterns that can be adapted into paid internal tools or service work:
+
+- file tree audits for messy shared folders
+- cleanup candidate reports before migration or archiving
+- safe quarantine workflows for generated/dependency folders
+- CSV inventory generation for operational records
+- collision-safe move planning
+- repeatable evidence reports for before/after cleanup
 
 ## Portfolio Note
 
